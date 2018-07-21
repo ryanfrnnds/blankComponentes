@@ -1,15 +1,15 @@
-/*#// Arquivo gerado pelo Scaffolding MDB
+// Arquivo gerado pelo Scaffolding MDB
 import { Component, OnInit} from '@angular/core';
 import {FormGroup } from '@angular/forms';
 import { MDBComponente, MDB } from 'mdias-componentes';
 
 @Component({
-	selector: 'app-#MODULO#-listagem',
-	templateUrl: './#MODULO#-listagem.component.html',
-	styleUrls: ['./#MODULO#-listagem.component.css']
+	selector: 'app-techday-listagem',
+	templateUrl: './techday-listagem.component.html',
+	styleUrls: ['./techday-listagem.component.css']
 })
-export class #MODULO_CAP#ListagemComponent implements OnInit {
-  public restController: string = '#MODULO#';
+export class TechdayListagemComponent implements OnInit {
+  public restController: string = 'techday';
 	public evento: Evento;
 	public formulario: FormGroup;
 	public lista: Array<any> = [];
@@ -45,7 +45,7 @@ export class #MODULO_CAP#ListagemComponent implements OnInit {
 
 class Evento {
 
-  constructor(private componente: #MODULO_CAP#ListagemComponent ) {}
+  constructor(private componente: TechdayListagemComponent ) {}
 
   limpar() {
     const componente = this.componente;
@@ -63,13 +63,17 @@ class Evento {
 
   editar(id) {
     const componente = this.componente;
-    MDB.angular().router.navigate(['#MODULO_PLURAL#/formulario'], {queryParams : {id: id}});
+    MDB.angular().router.navigate(['techdays/formulario'], {queryParams : {id: id}});
+  }
+
+  deletar(id){
+    const componente = this.componente;
+    MDB.servicos().http.deletar(componente.restController,id).subscribe(() => {});
   }
 
   visualizar(id) {
     const componente = this.componente;
-    MDB.angular().router.navigate(['#MODULO_PLURAL#/formulario'], {queryParams : {id: id, ehVisualizacao : true}});
+    MDB.angular().router.navigate(['techdays/formulario'], {queryParams : {id: id, ehVisualizacao : true}});
   }
 
 }
-#*/

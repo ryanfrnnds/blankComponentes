@@ -11,7 +11,7 @@
     "e2e": "ng e2e",
     "preWAR": "gulp guardarConfOriginal && gulp sobrescreverConf",
     "war": "gulp distReplaceIndex && gulp distCriarWar && gulp clean && gulp recuperarConfInicial && gulp deletarArquivoTemporario",
-    "mdbtemplate": "node ./scaffolding/crud-script.js"
+    "template": "node ./scaffolding/crud-script.js"
   },
   "private": true,
   "dependencies": {
@@ -34,7 +34,7 @@
     "gulp-string-replace": "^1.0.0",
     "gulp-zip": "^4.1.0",
     "material-design-icons": "^3.0.1",
-    "mdias-componentes": "^1.2.4",
+    "mdias-componentes": "^1.2.42",
     "prompt": "^1.0.0",
     "replace-in-file": "^2.0.1",
     "rxjs": "^6.2.1",

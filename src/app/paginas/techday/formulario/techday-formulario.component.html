@@ -15,20 +15,9 @@
 	>
 		<form class="form-horizontal" [formGroup]="formulario" (submit)="false">
 			<mdias-col l="6">
-				<mdias-autocomplete
-					[controle] = "formulario.get('autoComplete')"
-					[atributoDisplay] = "'valor'"
-					[ehObrigatorio] = true
-					[label] ="'Auto complete'"
-					[lista] = "listaAutoComplete"
-					(itemSelecionado) = "evento.itemSelecionado($event)"
-				>
-				</mdias-autocomplete>
-			</mdias-col>
-			<mdias-col l="6">
 				<mat-form-field>
-					<input matInput [formControl]="formulario.get('campo1')"  placeholder="Campo 1">
-					<mat-error >{{util.error(formulario.get('campo1'))}}</mat-error>
+					<input matInput [formControl]="formulario.get('descricao')"  placeholder="Descricao">
+					<mat-error >{{util.error(formulario.get('descricao'))}}</mat-error>
 				</mat-form-field>
 			</mdias-col>
 		</form>

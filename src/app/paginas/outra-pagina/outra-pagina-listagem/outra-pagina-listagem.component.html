@@ -1,4 +1,4 @@
-<mdias-container [ehCarregando] = "mdbComponenteUtil.ehCarregando" [nomeDaPagina]="mdbComponenteUtil.traduzir('parametro.titulo')" icone="search" [valorBotaoNovo]="mdbComponenteUtil.traduzir('mdbComponentes.botao.novo')" rotaBotaoNovo="outra-pagina/formulario">
+<mdias-container [nomeDaPagina]="mdbComponenteUtil.traduzir('parametro.titulo')" icone="search" [valorBotaoNovo]="mdbComponenteUtil.traduzir('mdbComponentes.botao.novo')" rotaBotaoNovo="outra-pagina/formulario">
     <mdias-filtro
         (pesquisar) = "evento.pesquisar()"
         (limpar) = "evento.limpar()"

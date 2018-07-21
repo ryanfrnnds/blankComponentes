@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient } from "@angular/common/http";
 import { FormBuilder } from '@angular/forms';
-import { MDB, MdbHttpServico, MdbMensagemServico } from 'mdias-componentes';
+import { MDB, MdbHttpServico, MdbMensagemServico, MdiasAppService } from 'mdias-componentes';
 
 import { NOME_DA_APLICACAO, SERVIDOR, ROTA_INICIO } from './app.const';
 import { Observable } from 'rxjs';
@@ -16,7 +16,7 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
   
-  constructor(httpClient: HttpClient, mdbHttpServico: MdbHttpServico, mensageria: MdbMensagemServico , router: Router, activatedRoute: ActivatedRoute, formBuild:FormBuilder, location: Location) {
+  constructor(httpClient: HttpClient, mdiasAppServico: MdiasAppService,mdbHttpServico: MdbHttpServico, mensageria: MdbMensagemServico , router: Router, activatedRoute: ActivatedRoute, formBuild:FormBuilder, location: Location) {
     MDB.incializar(
       {
          contexto:{
@@ -30,7 +30,8 @@ export class AppComponent {
           location: location
         },servicos:{
           mensagem:mensageria,
-          http:mdbHttpServico
+          http:mdbHttpServico,
+          mdiasApp: mdiasAppServico
         }
       }, httpClient);
   }

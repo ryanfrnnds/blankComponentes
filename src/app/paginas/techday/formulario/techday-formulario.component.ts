@@ -1,16 +1,16 @@
-/*#// Arquivo gerado pelo Scaffolding MDB
+// Arquivo gerado pelo Scaffolding MDB
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
 
 import {MDBComponente,MDB } from 'mdias-componentes';
 
 @Component({
-	selector: 'app-#MODULO#-formulario',
-	templateUrl: './#MODULO#-formulario.component.html',
-	styleUrls: ['./#MODULO#-formulario.component.css']
+	selector: 'app-techday-formulario',
+	templateUrl: './techday-formulario.component.html',
+	styleUrls: ['./techday-formulario.component.css']
 })
-export class #MODULO_CAP#FormularioComponent implements OnInit {
-  public restController: string = '#MODULO#';
+export class TechdayFormularioComponent implements OnInit {
+  public restController: string = 'techday';
 	public formulario: FormGroup;
   public evento: Evento;
   public util:MDBComponente;
@@ -38,8 +38,7 @@ export class #MODULO_CAP#FormularioComponent implements OnInit {
   
   private criarFormulario() {
     this.formulario = MDB.angular().formBuilder.group({
-      autoComplete: [null, [Validators.required]],
-      campo1: [null, [Validators.required]]
+      descricao: [null, [Validators.required]]
     });
   }
 
@@ -49,8 +48,9 @@ export class #MODULO_CAP#FormularioComponent implements OnInit {
         this.id = parametros.id;
         this.ehEdicao = true;
         this.ehVisualizacao = parametros.ehVisualizacao ? parametros.ehVisualizacao : false;
-        MDB.servicos().http.consultarPorId(this.restController,parametros.id).subscribe( resposta => {
-          this.formulario.setValue(resposta);
+        MDB.servicos().http.consultarPorId(this.restController,parametros.id).subscribe( (resposta: any) => {
+          console.log(resposta);
+          this.formulario.get('descricao').setValue(resposta.descricao);
         });
       }
     });
@@ -58,8 +58,10 @@ export class #MODULO_CAP#FormularioComponent implements OnInit {
 
   public salvar(item) {
     const ehEdicao: boolean = item.id ? true: false;
+    console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+    console.log(item);
     MDB.servicos().http.salvar(this.restController,ehEdicao,item).subscribe( resposta => {
-      MDB.angular().router.navigate(['#MODULO_PLURAL#/listagem']);
+      MDB.angular().router.navigate(['techdays/listagem']);
     });
   }
 }
@@ -67,7 +69,7 @@ export class #MODULO_CAP#FormularioComponent implements OnInit {
 
 class Evento {
 
-  constructor(private componente: #MODULO_CAP#FormularioComponent ) {}
+  constructor(private componente: TechdayFormularioComponent ) {}
 
   limpar() {
     const componente = this.componente;
@@ -77,7 +79,10 @@ class Evento {
   salvar() {
     const componente = this.componente;
     componente.util.onSalvar.subscribe( () => {
-      let itemASalvar:any = {};
+      let itemASalvar:any = {
+        id: componente.id,
+        descricao: componente.formulario.get('descricao').value
+      };
       console.log('Construir seu  objeto para salvar!');
       componente.salvar(itemASalvar);
     });
@@ -86,7 +91,7 @@ class Evento {
 
   cancelar() {
     const componente = this.componente;
-    MDB.angular().router.navigateByUrl('#MODULO_PLURAL#/listagem');
+    MDB.angular().router.navigateByUrl('techdays/listagem');
   }
 
   itemSelecionado(item) {
@@ -94,4 +99,3 @@ class Evento {
   }
 }
 
-#*/

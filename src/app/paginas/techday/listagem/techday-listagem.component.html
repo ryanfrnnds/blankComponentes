@@ -2,7 +2,7 @@
   icone="search" 
 	[nomeDaPagina]="'Sacffolding MDB - Listagem'" 
 	[valorBotaoNovo]="util.traduzir('mdbComponentes.botao.novo')" 
-	rotaBotaoNovo="#MODULO_PLURAL#/formulario"
+	rotaBotaoNovo="techdays/formulario"
 >
   <mdias-filtro
     (pesquisar) = "evento.pesquisar()"
@@ -28,14 +28,14 @@
       [lista] = "lista"
     >
       <mdias-coluna
-        [valorCabecalho] = "'campo 1'"
+        [valorCabecalho] = "'Id'"
         [ordenavel] = "true"
-        atributo = "campo1"
+        atributo = "id"
       ></mdias-coluna>
       <mdias-coluna
-        [valorCabecalho] = "'campo 2'"
+        [valorCabecalho] = "'Descricao'"
         [ordenavel] = "true"
-        atributo = "campo2"
+        atributo = "descricao"
       ></mdias-coluna>
       
       <mdias-coluna
@@ -46,6 +46,7 @@
           <mdias-botao-menu>
               <mdias-botao-menu-item (clique)="evento.editar(item.id)" icone="create" [valor]="util.traduzir('mdbComponentes.botao.editar')" ></mdias-botao-menu-item>
               <mdias-botao-menu-item (clique)="evento.visualizar(item.id)" icone="remove_red_eye" [valor]="util.traduzir('mdbComponentes.botao.visualizar')" ></mdias-botao-menu-item>
+              <mdias-botao-menu-item confirmacao=true [tituloDialog]='Quer deletar?' (clique)="evento.deletar(item.id)" icone="delete_forever" [valor]="'Deletar'" ></mdias-botao-menu-item>
           </mdias-botao-menu>  
         </ng-template>
       </mdias-coluna>

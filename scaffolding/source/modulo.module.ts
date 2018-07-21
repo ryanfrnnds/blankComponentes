@@ -17,4 +17,4 @@ import {#MODULO_CAP#FormularioComponent} from './formulario/#MODULO#-formulario.
 	]
 })
 export class #MODULO_CAP#Module {}
-*/
+#*/

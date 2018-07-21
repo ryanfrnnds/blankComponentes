@@ -5,6 +5,8 @@ import { MdbAcsServico, MdbAutenticacaoServico, MdbRoutes } from 'mdias-componen
 import { InicioComponent } from './paginas/inicio/inicio.component';
 import { OutraPaginaListagemComponent } from './paginas/outra-pagina/outra-pagina-listagem/outra-pagina-listagem.component';
 import { OutraPaginaFormularioComponent } from './paginas/outra-pagina/outra-pagina-formulario/outra-pagina-formulario.component';
+import { TechdayRoutes } from './paginas/techday/techday-routing.module';
+
 
 /*
   MdbAutenticacaoServico -- Para validar se usuário esta logado em REDE
