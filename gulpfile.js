@@ -26,11 +26,11 @@ gulp.task('guardarConfOriginal', function() {
   gulp.src(['./src/app/app.component.ts'])
     .pipe(concat('app.component-temp.ts'))
     .pipe(gulp.dest('./'));
-}); 
+});
 
 gulp.task('sobrescreverConf', function() {
   gulp.src(['./src/app/app.component.ts'])
-  .pipe(replace(new RegExp('urlServidor:[ ]*?SERVIDOR', 'g'), "urlServidor:'/"+nomeProjetoBack+"'"))
+  .pipe(replace(new RegExp(',[ ]*?tagGULPServidor', 'g'), ",'/"+nomeProjetoBack+"'"))
   .pipe(concat('app.component.ts'))
   .pipe(gulp.dest('./src/app/'));
 });

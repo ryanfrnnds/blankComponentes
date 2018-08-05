@@ -3,6 +3,7 @@
 	[nomeDaPagina]="'Sacffolding MDB - Listagem'" 
 	[valorBotaoNovo]="util.traduzir('mdbComponentes.botao.novo')" 
 	rotaBotaoNovo="#MODULO_PLURAL#/formulario"
+  (keyup.enter)="evento.pesquisar()"
 >
   <mdias-filtro
     (pesquisar) = "evento.pesquisar()"
